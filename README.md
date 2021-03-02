@@ -6,7 +6,7 @@ This is a Budgeting Tool for Foodies. We are students who love to explore new fl
 Developers:
     Andrea Aliaj
     Ibrahima Coulibaly
-    Zayn Kham
+    Zayn Khan
     Jian Lin
     Brandon McInnis
     Tyrone Senra
