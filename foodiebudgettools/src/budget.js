@@ -4,8 +4,9 @@ let userBudget = {
     "budgetAmount": 0, 
     "restaurantTier": 0
 }
-function computeFrequency () {
-    return userBudget.budgetAmount/userBudget.restaurantTier
+function computeFrequency (inputAmount,unitPrice) {
+    
+    return inputAmount/unitPrice;
 }
 
 export default computeFrequency;
