@@ -1,7 +1,7 @@
 // this page created by Jian and Rose 03/15/21
 
 import React from "react";
-import Budget from "budget.js"; //this imports the function computeFrequency in budget.js
+import Budget from "./budget.js"; //this imports the function computeFrequency in budget.js
 function budgetInterface () {
     return (
         <div>
