@@ -1,12 +1,11 @@
-//import logo from './logo.svg';
 import './App.css';
-import budgetInterface from "./budgetInterface";
+import BudgetInterface from "./budgetInterface";  // Change:   budgetInterface --> BudgetInterface
 
 
 function App() {
   return (
     <div>
-      <budgetInterface />
+      <BudgetInterface />   {/*Change:   budgetInterface --> BudgetInterface*/}
     </div>
   );
 }
