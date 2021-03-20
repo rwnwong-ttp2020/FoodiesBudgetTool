@@ -1,5 +1,5 @@
 import './App.css';
-import BudgetInterface from "./budgetInterface";  // Change:   budgetInterface --> BudgetInterface
+import BudgetInterface from "../src/UserStory1/budgetInterface";  // Change:   budgetInterface --> BudgetInterface
 
 
 function App() {

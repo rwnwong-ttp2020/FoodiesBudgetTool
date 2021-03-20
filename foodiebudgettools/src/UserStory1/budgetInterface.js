@@ -1,7 +1,7 @@
 // this page created by Jian and Rose 03/15/21
 
 import React, {useState}from "react";
-//the code have been completed changed! 
+//the code have been completed changed!  --> budget.js is completed not use anymore.
 //I used the useState to keep track the user input about the budget and resPrice.
 //plase meeting me if you need a explain with the code--> the code can not be explain clearly in just comment. ---- jian Lin
 function BudgetInterface () {
