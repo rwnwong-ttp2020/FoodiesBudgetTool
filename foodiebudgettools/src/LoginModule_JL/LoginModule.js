@@ -7,14 +7,15 @@ function LoginModule(){
         inputEmail:"",
         inputPassword:""
     });
-    
+    let [isExitUser,setUserState] = useState(true);
+
     function handlePost(event){
         console.log(userInput);
         event.preventDefault();
-        axios
-            .post("http://localhost:3001/login",userInput)
-            .then(res=>{console.log(res);})
-            .catch(err=>{console.log(err);})
+        axios.post("http://localhost:3939/login",userInput)
+            .then(res => console.log(res));
+        
+        //window.location = "//";
     }
     
     function handleChange(event){
@@ -49,3 +50,6 @@ function LoginModule(){
 }
 
 export default LoginModule;
+
+// ,
+  // "proxy": "http://localhost:3939"
