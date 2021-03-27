@@ -1,45 +1,42 @@
+//require the need componements
 const express = require("express");
-//const bodyparser = require("body-parser");
 const mongoose = require("mongoose");
+const {Schema} = mongoose;
 const cors = require("cors");
 const app = express();
-mongoose.connect("mongodb://localhost:27017/FoodiesDB",{ useUnifiedTopology: true, useNewUrlParser: true },()=>{console.log("connected to FoodiesDB")});
-//app.use(bodyParser.urlencoded({extended: true}));
+//DB connect String
+mongoose.connect("//mongodb://127.0.0.1:27017/FoodiesDB",{ useUnifiedTopology: true, useNewUrlParser: true },()=>{console.log("connected to FoodiesDB")});//
+//setup using json
 app.use(express.json());
 app.use(cors());
-
-const UserSchema = {
+//creat a DB schema
+const UserSchema = new Schema({
     userName:String,
     userPwd:String
-};
-const FindUser = mongoose.model("UserInfor",UserSchema);
+});
+//specft the collection ---which table work for 
+const FindUser = mongoose.model('UserInfor', UserSchema, 'UserInfor');     // collection name
 
 app.get("/",function(req,res){
     res.send("hello world.");
 });
-
-app.post("/login",function(req,res){
-    //console.log(req.body.inputEmail);
+//login module
+app.post("/login",async function(req,res){
+  
+    //console.log(req.body.inputEmail); confirm the data have been pass to the backend
     //console.log(req.body.inputPassword);
-    FindUser.find({},function(resD,err){
-        console.log(resD);
-    });
+
+    //query the DB with data
+    FindUser.find({userName:req.body.inputEmail},{userPwd:req.body.inputPassword},function(err, result) {
+        if (result) {//pass back the result
+          console.log("request found user :"+result);
+          res.json({"result":true});
+        } else {
+          res.json({"result":false});
+        }
+        if (err) {console.log(err);}// check if any err
+      });
 });
-
-// {userName:req.body.inputEmail},
-//         {userPwd:req.body.inputPassword},
-//         function(resDB,err){
-//             if(!err && resDB){
-//                 console.log("reustl = "+resDB);
-//                 res.json(resDB);
-//             }else{
-//                 console.log("reustl = "+resDB);
-//                 console.log("err = "+err);
-//                 res.json(err);
-//             }
-//         }
-
-
 
 app.listen("3939",function(){
     console.log("foodies server online 3939");

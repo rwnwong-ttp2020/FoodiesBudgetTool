@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import axios from "axios";
+import ReactDOM from 'react-dom';
+import App_BM from '../App_BM.js';
 
 
 function LoginModule(){
@@ -7,15 +8,37 @@ function LoginModule(){
         inputEmail:"",
         inputPassword:""
     });
-    let [isExitUser,setUserState] = useState(true);
+    let [isExitUser,setUserState] = useState(false);
 
     function handlePost(event){
         console.log(userInput);
         event.preventDefault();
-        axios.post("http://localhost:3939/login",userInput)
-            .then(res => console.log(res));
-        
-        //window.location = "//";
+
+        fetch('http://localhost:3939/login', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json',},
+             body: JSON.stringify(userInput),
+            })
+              .then(response => response.json())
+              .then(data => {
+                //console.log('Success:', data);
+                setUserState(data.result);
+              })
+              .catch((error) => {
+                console.error('Error:', error);
+              });
+        if(isExitUser){
+            ReactDOM.render(
+                <App_BM userName = {userInput.inputEmail}/>,
+                document.getElementById('root')
+              );
+        }else{
+            //need to show the alert
+            alert("User not found!");
+            setInput((preV)=>{
+                return {...preV,"inputPassword":"User Not Found!@"};
+            });
+        }
     }
     
     function handleChange(event){
@@ -32,9 +55,9 @@ function LoginModule(){
         
         <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
         <label for="inputEmail" class="visually-hidden">Email address</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address"  values={userInput.email} onChange={handleChange}/>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address"  values={userInput.inputEmail} onChange={handleChange}/>
         <label for="inputPassword" class="visually-hidden">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" values={userInput.password} onChange={handleChange}/>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" values={userInput.inputPassword} onChange={handleChange}/>
         <div class="checkbox mb-3">
         <br/>
         <label>
@@ -50,6 +73,3 @@ function LoginModule(){
 }
 
 export default LoginModule;
-
-// ,
-  // "proxy": "http://localhost:3939"

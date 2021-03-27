@@ -7,11 +7,11 @@ import Services from '../src/components_BM/pages/Services';
 import Products from '../src/components_BM/pages/Products';
 import SignUp from '../src/components_BM/pages/SignUp';
 
-function App() {
+function App(props) {
   return (
     <>
       <Router>
-        <Navbar />
+        <Navbar userName = {props.userName}/>
         <Switch>
           <Route path='/' exact component={Home} />
           <Route path='/services' component={Services} />
