@@ -1,11 +1,11 @@
 import React from 'react';
-import Navbar from './components/HomePage_BM/Navbar';
+import Navbar from './Navbar';
 import './App_BM.css';
-import Home from './components/HomePage_BM/pages/Home';
+import Home from './pages/Home';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Services from './components/HomePage_BM/pages/Services';
-import Products from './components/HomePage_BM/pages/Products';
-import SignUp from './components/HomePage_BM/pages/SignUp';
+import Services from './pages/Services';
+import Products from './pages/Products';
+import SignUp from './pages/SignUp';
 
 function App(props) {
   return (

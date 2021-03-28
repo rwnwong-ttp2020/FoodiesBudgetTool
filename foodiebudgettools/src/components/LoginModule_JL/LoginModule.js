@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ReactDOM from 'react-dom';
-import App_BM from './src/components/HomePage_BM/App_BM.js';
+import App_BM from '../HomePage_BM/App_BM';
 
 
 function LoginModule(){
@@ -26,21 +26,23 @@ function LoginModule(){
                 //console.log('Success:', data);
                 setUserState(data.result);
               })
+              .then(()=>{
+                if(isExitUser){
+                    ReactDOM.render(
+                        <App_BM userName = {userInput.inputEmail}/>,
+                        document.getElementById('root')
+                      );
+                }else{
+                    //need to show the alert
+                    alert("User not found!");
+                    setInput((preV)=>{
+                        return {...preV,"inputPassword":"User Not Found!@"};
+                    });
+                }
+              })
               .catch((error) => {
                 console.error('Error:', error);
               });
-        if(isExitUser){
-            ReactDOM.render(
-                <App_BM userName = {userInput.inputEmail}/>,
-                document.getElementById('root')
-              );
-        }else{
-            //need to show the alert
-            alert("User not found!");
-            setInput((preV)=>{
-                return {...preV,"inputPassword":"User Not Found!@"};
-            });
-        }
     }
     
     function handleChange(event){
