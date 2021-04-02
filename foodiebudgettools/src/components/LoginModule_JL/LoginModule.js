@@ -9,11 +9,12 @@ function LoginModule(){
         inputEmail:"",
         inputPassword:""
     });
-
+    
+    let [isvisibleAlert,setVisible] = useState("none");
     let [isExitUser,setUserState] = useState(false);
 
     function handlePost(event){
-        console.log(userInput);
+        //console.log(userInput);
         event.preventDefault();
 
         fetch('http://localhost:3939/login', {
@@ -23,7 +24,6 @@ function LoginModule(){
             })
               .then(response => response.json())
               .then(data => {
-                //console.log('Success:', data);
                 setUserState(data.result);
               })
               .then(()=>{
@@ -33,11 +33,7 @@ function LoginModule(){
                         document.getElementById('root')
                       );
                 }else{
-                    //need to show the alert
-                    alert("User not found!");
-                    setInput((preV)=>{
-                        return {...preV,"inputPassword":"User Not Found!@"};
-                    });
+                    setVisible("");
                 }
               })
               .catch((error) => {
@@ -64,6 +60,7 @@ function LoginModule(){
         <input type="password" id="inputPassword" class="form-control" placeholder="Password" values={userInput.inputPassword} onChange={handleChange}/>
         <div class="checkbox mb-3">
         <br/>
+        <p style={{display:isvisibleAlert,color:"red"}}>User Not Found,please check your input!</p>
         <label>
             <input type="checkbox" value="remember-me" /> Remember me
         </label>
