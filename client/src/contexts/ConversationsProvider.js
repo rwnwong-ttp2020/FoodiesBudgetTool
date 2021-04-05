@@ -1,4 +1,4 @@
-import React, {useContext, useState } from 'react'
+import React, {useContext, useState, useEffect} from 'react'
 import useLocalStorage from '../hooks/useLocalStorage';
 import { useContacts } from './ContactsProvider';
 
@@ -19,7 +19,7 @@ export function ConversationsProvider({ id, children }) {
     })
   }
 
-  function addMessageToConversation({ recipients, text, sender}) {
+  function addMessageToConversation ({ recipients, text, sender}){
     setConversations(prevConversations => {
       let madeChange = false
       const newMessage = {sender, text}
@@ -33,13 +33,14 @@ export function ConversationsProvider({ id, children }) {
           }
         }
         return conversation
-      } )
+      })
 
       if(madeChange){
         return newConversations
       }
       else{
-        return [...prevConversations, {recipients, messages: [newMessage]}
+        return [...prevConversations, 
+          {recipients, messages: [newMessage]}
       ]
       }
     })
@@ -59,14 +60,22 @@ export function ConversationsProvider({ id, children }) {
       return { id: recipient, name }
     })
 
-    const messages = conversation.meesages.map()
+    const messages = conversation.messages.map(message =>{
+      const contact = contacts.find(contact => {
+        return contact.id === message.sender
+    })
+    const name =(contact && contact.name) || message.sender
+    const fromMe = id === message.sender
+    return {...message,senderName: name, fromMe}
+  })
 
     const selected = index === selectedConversationIndex
-    return { ...conversation, recipients, selected }
+    return { ...conversation,messages, recipients, selected }
   })
     const value = {
       conversations: formattedConversations,
-      selectConversation: formattedConversations[selectedConversationIndex],
+      selectedConversation: formattedConversations
+      [selectedConversationIndex],
       sendMessage,
       selectConversationIndex: setSelectedConversationIndex,
       createConversation

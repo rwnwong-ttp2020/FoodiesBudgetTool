@@ -14,13 +14,10 @@ export default function Conversations() {
                 onClick ={() => selectConversationIndex(index)}
                 active={conversation.selected}
                 >
-                    {conversation.recipients.map(r => r.name).join(', ')}
+                    {conversation.recipients.map(recipients => recipients.name).join(', ')}
 
                 </ListGroup.Item>
             ))}
-
         </ListGroup>
-        
-      
     )
 }
