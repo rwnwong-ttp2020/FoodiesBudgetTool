@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App_BM from '../src/components/HomePage_BM/App_BM';
+import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App_BM />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
-
