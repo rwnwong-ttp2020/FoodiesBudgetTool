@@ -33,7 +33,7 @@ function LoginModule(){
                 //     console.log(preV);
                 //     return preV;
                 // });
-                //console.log(isExitUser);
+                console.log(isExitUser);
                 if(isExitUser){
                     ReactDOM.render(
                         <App_BM userName = {userInput.inputEmail}/>,

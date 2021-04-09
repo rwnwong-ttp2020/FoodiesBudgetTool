@@ -1,10 +1,11 @@
 import React from 'react';
 import './Cards.css';
 import CardItem from './CardItem';
+import "../TestA/backgroundStyle.css";
 
 function Cards() {
   return (
-    <div className='cards'>
+    <div className='cards mybackgroundColor'>
       <h1>Check out these EPIC Destinations!</h1>
       <div className='cards__container'>
         <div className='cards__wrapper'>
@@ -16,7 +17,7 @@ function Cards() {
               path='/services'
             />
             <CardItem
-              src='../images/img-2.jpg'
+              src="../images/img-2.jpg" //../images/img-2.jpg
               text='Travel through the Islands of Bali in a Private Cruise'
               label='Luxury'
               path='/services'
