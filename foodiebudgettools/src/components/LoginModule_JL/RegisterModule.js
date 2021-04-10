@@ -1,23 +1,28 @@
 import React, { useState } from "react";
 import ReactDOM from 'react-dom';
 import App_BM from '../HomePage_BM/App_BM';
-import RegisterModule from './RegisterModule';
 
-function LoginModule(){
-    
-    let [userInput,setInput] = useState({
+
+function RegisterModule(){
+
+     let [userInput,setInput] = useState({
         inputEmail:"",
-        inputPassword:""
+        inputPassword:"",
+        reInputPassword:""
     });
     
     let [isvisibleAlert,setVisible] = useState("none");
-    let [isExitUser,setUserState] = useState(false);
+    let [isSuccess,setResState] = useState(false);
 
     function handlePost(event){
+        if(userInput.inputEmail !== userInput.reInputPassword){
+            setVisible("");
+            return;
+        }
 
         event.preventDefault();
 
-        fetch('http://localhost:3939/login', {
+        fetch('http://localhost:3939/register', {
             method: 'POST',
             headers: {'Content-Type': 'application/json',},
              body: JSON.stringify(userInput),
@@ -25,22 +30,16 @@ function LoginModule(){
               .then(response => response.json())
               .then(data => {
                 console.log(data.result);
-                setUserState(data.result);
-                
+                setResState(data.result);
               })
               .then(()=>{
-                // setUserState((preV)=>{
-                //     console.log(preV);
-                //     return preV;
-                // });
-                console.log(isExitUser);
-                if(isExitUser){
+                if(isSuccess){
                     ReactDOM.render(
                         <App_BM userName = {userInput.inputEmail}/>,
                         document.getElementById('root')
                       );
                 }else{
-                    setVisible("");
+                   //need to show err tip
                 }
               })
               .catch((error) => {
@@ -54,32 +53,25 @@ function LoginModule(){
             return {...preV,[id]:value};
         });
     }
-    function toRegister(){
-        ReactDOM.render(
-            <RegisterModule />,
-            document.getElementById('root')
-          );
-    }
+   
     return (
     <div class="lgoinModule">
           
     <form class="form-signin" onSubmit={handlePost}>
         <img class="mb-4" src="../images/login_food.jpg" alt="" width="72" height="57" />
         
-        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+        <h1 class="h3 mb-3 fw-normal">Enter your Email & Password</h1>
         <label for="inputEmail" class="visually-hidden">Email address</label>
         <input type="email" id="inputEmail" class="form-control" placeholder="Email address"  values={userInput.inputEmail} onChange={handleChange}/>
         <label for="inputPassword" class="visually-hidden">Password</label>
         <input type="password" id="inputPassword" class="form-control" placeholder="Password" values={userInput.inputPassword} onChange={handleChange}/>
+        <label for="inputPassword" class="visually-hidden">re-Password</label>
+        <input type="password" id="reInputPassword" class="form-control" placeholder="re-Password" values={userInput.reInputPassword} onChange={handleChange}/>
         <div class="checkbox mb-3">
         <br/>
-        <p style={{display:isvisibleAlert,color:"red"}}>User Not Found,please check your input!</p>
-        <label>
-            <input type="checkbox" value="remember-me" /> Remember me
-        </label>
+        <p style={{display:isvisibleAlert,color:"red"}}>The secound password is not math to the first password, please check!</p>
         </div>
-        <button class="w-100 btn btn-lg btn-primary" type="Submit">Sign in</button>
-        <p class="fs-6">Not have an account yet? Click <a class="text-decoration-none" href="#" onClick={toRegister}>here</a> to have one today!</p>
+        <button class="w-100 btn btn-lg btn-primary" type="Submit">Sign Up</button>
         <p class="mt-5 mb-3 text-muted">Foodies © 2021</p>
     </form>
 
@@ -87,4 +79,4 @@ function LoginModule(){
     );
 }
 
-export default LoginModule;
+export default RegisterModule;

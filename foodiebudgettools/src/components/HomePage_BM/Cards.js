@@ -1,11 +1,14 @@
 import React from 'react';
 import './Cards.css';
 import CardItem from './CardItem';
+
 import "../layouts/backgroundStyle.css";
+
 function Cards() {
   return (
     <div className='cards backgroundColor'>
       <h1>Check out we love foodies!</h1>
+
       <div className='cards__container'>
         <div className='cards__wrapper'>
           <ul className='cards__items'>
@@ -17,9 +20,11 @@ function Cards() {
               path='/services'
             />
             <CardItem
+
               src='../images/download.png'
               text='Get direction from Google maps'
               label='Map'
+
               path='/services'
             />
           </ul>
