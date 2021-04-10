@@ -1,44 +1,45 @@
 import React from 'react';
 import './Cards.css';
 import CardItem from './CardItem';
-
+import "../layouts/backgroundStyle.css";
 function Cards() {
   return (
-    <div className='cards'>
-      <h1>Check out these EPIC Destinations!</h1>
+    <div className='cards backgroundColor'>
+      <h1>Check out we love foodies!</h1>
       <div className='cards__container'>
         <div className='cards__wrapper'>
           <ul className='cards__items'>
-            <CardItem     //http://localhost:3000/details/img/myImage.png
-              src='../images/login_food.jpg'
-              text='Explore the hidden waterfall deep inside the Amazon Jungle'
-              label='Adventure'
+            <CardItem // https://www.thenaturalfoodies.com/wp-content/uploads/2019/08/welove_foodies_t.png
+
+              src='../images/Foods.jpeg' 
+              text='Explore the various of food in we love foodies that you can purchase'
+              label='List of Foods'
               path='/services'
             />
             <CardItem
-              src='../images/img-2.jpg'
-              text='Travel through the Islands of Bali in a Private Cruise'
-              label='Luxury'
+              src='../images/download.png'
+              text='Get direction from Google maps'
+              label='Map'
               path='/services'
             />
           </ul>
           <ul className='cards__items'>
             <CardItem
-              src='../images/img-3.jpg'
-              text='Set Sail in the Atlantic Ocean visiting Uncharted Waters'
-              label='Mystery'
+              src='../images/app-store.png'
+              text='Foodies Buget App'
+              label='App'
               path='/services'
             />
             <CardItem
-              src='../images/img-4.jpg'
-              text='Experience Football on Top of the Himilayan Mountains'
-              label='Adventure'
+              src='../images/Calculator.png'
+              text='Calculator Budget'
+              label='Budget'
               path='/products'
             />
             <CardItem
-              src='../images/img-8.jpg'
-              text='Ride through the Sahara Desert on a guided camel tour'
-              label='Adrenaline'
+              src='../images/ChatSupport.jpeg'
+              text='Contact Customer Service/Chat Support'
+              label='Chat'
               path='/sign-up'
             />
           </ul>
