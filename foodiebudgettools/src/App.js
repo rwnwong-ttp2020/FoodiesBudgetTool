@@ -7,7 +7,7 @@ import APP_BM from "../src/components/HomePage_BM/App_BM";
 import HeroSection from "./components/HomePage_BM/HeroSection";
 
 
-import CalBudget from "../src/components/calulator/CalBudget";
+
 function App() {
   return (
     <div>
