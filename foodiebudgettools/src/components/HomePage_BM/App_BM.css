@@ -17,16 +17,16 @@
 }
 
 .services {
-  background-image: url('../../assets/img-2.jpg');
+  background-image: url('http://www.thenaturalfoodies.com/');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  color: #fff;
+  color: rgb(255, 255, 255);
   font-size: 100px;
 }
 
 .products {
-  background-image: url('../../assets/img-1.jpg');
+  background-image: url('http://www.thenaturalfoodies.com/');
   background-position: center;
   background-size: fill;
   background-repeat: no-repeat;
@@ -35,10 +35,10 @@
 }
 
 .sign-up {
-  background-image: url('../../assets/img-8.jpg');
+  background-image: url('http://www.thenaturalfoodies.com/');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  color: #fff;
+  color: rgb(255, 255, 255);
   font-size: 100px;
 }
