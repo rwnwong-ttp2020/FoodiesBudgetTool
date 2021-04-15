@@ -2,13 +2,12 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const {Schema} = mongoose;
-const cors = require("cors");
 const app = express();
+////////////////////////////////////////////////////MongoDB////////////////////////////////////////
 //DB connect String
 mongoose.connect("//mongodb://127.0.0.1:27017/FoodiesDB",{ useUnifiedTopology: true, useNewUrlParser: true },()=>{console.log("connected to FoodiesDB")});//
 //setup using jsosn
 app.use(express.json());
-app.use(cors());
 //creat a DB schema
 const UserSchema = new Schema({
     userName:String,
@@ -16,7 +15,26 @@ const UserSchema = new Schema({
 });
 //specft the collection ---which collection work for 
 const UserOperation = mongoose.model('UserInfor', UserSchema, 'UserInfor');     // collection name
+///////////////////////////////////////////////////Yelp Api///////////////////////////////////////////
+const yelp = require('yelp-fusion');
 
+const apiKey = 'rgyyTNox1UhPWw-fu6kDbv7mGQ4TDFpu8Ex8OOJ3TRHXN5l1AuASmE7dYLL9GEl656GqIlApjT_UXcnXNqXfYjJbjuY8kK7PZgJfqbdyRkqBVx6koZaD-op6NFp4YHYx';
+
+const searchRequest = {
+  term:'Four Barrel Coffee',
+  location: 'New York City, ny'
+};
+
+const client = yelp.client(apiKey);
+
+client.search(searchRequest).then(response => {
+  const firstResult = response.jsonBody.businesses[0];
+  const prettyJson = JSON.stringify(firstResult, null, 4);
+  console.log(prettyJson);
+}).catch(e => {
+  console.log(e);
+});
+//////////////////////////////////////////Route////////////////////////////////////////////////////////
 app.get("/",function(req,res){
     res.send("hello world.");
 });
