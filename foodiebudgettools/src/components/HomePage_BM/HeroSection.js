@@ -3,13 +3,12 @@ import './App_BM.css';
 import { Button } from './Button';
 import './HeroSection.css';
 
-
 function HeroSection() {
   return (
     <div className='hero-container'>
       
-      <h1>Foodies Budget App</h1>
-      <p>What are you waiting for?</p>
+      <h1>Foodies Budget </h1>
+      
       <div className='hero-btns'>
         <Button
           className='btns'
@@ -24,7 +23,7 @@ function HeroSection() {
           buttonSize='btn--large'
           onClick={console.log('hey')}
         >
-          WATCH TRAILER <i className='far fa-play-circle' />
+          
         </Button>
       </div>
     </div>

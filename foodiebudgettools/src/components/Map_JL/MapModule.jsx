@@ -13,7 +13,7 @@ const Map = ({restaurantData,center,zoom})=>{
     return (
       <div className="map">
           <GoogleMapReact 
-            bootstrapURLKeys={{key:"AIzaSyAzwWkXI6vClEGWAa50FlSWBaJZAYoVN-g"}}
+            bootstrapURLKeys={{key:"**********"}}
             defaultCenter={center}
             defaultZoom ={zoom}
           >
