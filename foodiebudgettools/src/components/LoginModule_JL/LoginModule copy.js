@@ -1,29 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from 'react-dom';
 import App_BM from '../HomePage_BM/App_BM';
+import RegisterModule from './RegisterModule';
 
-
-function RegisterModule(){
-
-     let [userInput,setInput] = useState({
+function LoginModule(){
+    
+    let [userInput,setInput] = useState({
         inputEmail:"",
-        inputPassword:"",
-        reInputPassword:""
+        inputPassword:""
     });
     
     let [isvisibleAlert,setVisible] = useState("none");
-    //let [isSuccess,setResState] = useState(false);
+    let [isExitUser,setUserState] = useState(false);
+    
 
     function handlePost(event){
 
-        if(userInput.inputPassword !== userInput.reInputPassword){
-            setVisible("");
-            return;
-        }
-
         event.preventDefault();
-
-        fetch('http://localhost:3939/register', {
+        //async await  useEffect()
+        fetch('http://localhost:3939/login', {
             method: 'POST',
             headers: {'Content-Type': 'application/json',},
              body: JSON.stringify(userInput),
@@ -31,18 +26,23 @@ function RegisterModule(){
               .then(response => response.json())
               .then(data => {
                 console.log(data.result);
-                if(data.result){
-                  ReactDOM.render(
-                      <App_BM userName = {userInput.inputEmail}/>,
-                      document.getElementById('root')
-                    );
-                }else{
-                  alert("something went wrong, try again.")
-                }
+                setUserState(()=>{
+                    return data.result;
+                });
               })
               .catch((error) => {
                 console.error('Error:', error);
               });
+
+            console.log(isExitUser);
+            if(isExitUser){
+                ReactDOM.render(
+                    <App_BM userName = {userInput.inputEmail}/>,
+                    document.getElementById('root')
+                    );
+            }else{
+                setVisible("");
+            }
     }
     
     function handleChange(event){
@@ -51,25 +51,32 @@ function RegisterModule(){
             return {...preV,[id]:value};
         });
     }
-   
+    function toRegister(){
+        ReactDOM.render(
+            <RegisterModule />,
+            document.getElementById('root')
+          );
+    }
     return (
     <div class="lgoinModule">
           
-    <form class="form-signin" onSubmit={handlePost}>
+    <form class="form-signin" >
         <img class="mb-4" src="../images/login_food.jpg" alt="" width="72" height="57" />
         
-        <h1 class="h3 mb-3 fw-normal">Enter your Email & Password</h1>
+        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
         <label for="inputEmail" class="visually-hidden">Email address</label>
         <input type="email" id="inputEmail" class="form-control" placeholder="Email address"  values={userInput.inputEmail} onChange={handleChange}/>
         <label for="inputPassword" class="visually-hidden">Password</label>
         <input type="password" id="inputPassword" class="form-control" placeholder="Password" values={userInput.inputPassword} onChange={handleChange}/>
-        <label for="inputPassword" class="visually-hidden">re-Password</label>
-        <input type="password" id="reInputPassword" class="form-control" placeholder="re-Password" values={userInput.reInputPassword} onChange={handleChange}/>
         <div class="checkbox mb-3">
         <br/>
-        <p style={{display:isvisibleAlert,color:"red"}}>The secound password is not math to the first password, please check!</p>
+        <p style={{display:isvisibleAlert,color:"red"}}>User Not Found,please check your input!</p>
+        <label>
+            <input type="checkbox" value="remember-me" /> Remember me
+        </label>
         </div>
-        <button class="w-100 btn btn-lg btn-primary" type="Submit">Sign Up</button>
+        <button class="w-100 btn btn-lg btn-primary" type="Submit" onClick={handlePost}>Sign in</button>
+        <p class="fs-6">Not have an account yet? Click <a class="text-decoration-none" href="#" onClick={toRegister}>here</a> to have one today!</p>
         <p class="mt-5 mb-3 text-muted">Foodies © 2021</p>
     </form>
 
@@ -77,4 +84,4 @@ function RegisterModule(){
     );
 }
 
-export default RegisterModule;
+export default LoginModule;

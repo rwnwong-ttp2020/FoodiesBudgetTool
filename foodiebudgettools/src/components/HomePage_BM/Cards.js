@@ -1,11 +1,10 @@
 import React from 'react';
 import './Cards.css';
 import CardItem from './CardItem';
-import "../TestA/backgroundStyle.css";
 
 function Cards() {
   return (
-    <div className='cards mybackgroundColor'>
+    <div className='cards'>
       <h1>Check out these EPIC Destinations!</h1>
       <div className='cards__container'>
         <div className='cards__wrapper'>

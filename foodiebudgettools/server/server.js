@@ -49,7 +49,7 @@ app.post("/register",function(req,res){
    });
    newUser.save(function (err){
     if(!err){
-      console.log("insert "+newUser.userName+" successfuly!!! ");
+      console.log("insert a new user "+newUser.userName+" successfuly!!! ");
       res.json({"result":true});
     }else{
       res.json({"result":false});

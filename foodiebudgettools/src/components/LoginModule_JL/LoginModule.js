@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from 'react-dom';
 import App_BM from '../HomePage_BM/App_BM';
 import RegisterModule from './RegisterModule';
@@ -11,12 +11,12 @@ function LoginModule(){
     });
     
     let [isvisibleAlert,setVisible] = useState("none");
-    let [isExitUser,setUserState] = useState(false);
+    //let [isExitUser,setUserState] = useState(false);
 
     function handlePost(event){
 
         event.preventDefault();
-
+        //async await  useEffect()
         fetch('http://localhost:3939/login', {
             method: 'POST',
             headers: {'Content-Type': 'application/json',},
@@ -24,17 +24,7 @@ function LoginModule(){
             })
               .then(response => response.json())
               .then(data => {
-                console.log(data.result);
-                setUserState(data.result);
-                
-              })
-              .then(()=>{
-                // setUserState((preV)=>{
-                //     console.log(preV);
-                //     return preV;
-                // });
-                console.log(isExitUser);
-                if(isExitUser){
+                if(data.result){
                     ReactDOM.render(
                         <App_BM userName = {userInput.inputEmail}/>,
                         document.getElementById('root')
@@ -63,7 +53,7 @@ function LoginModule(){
     return (
     <div class="lgoinModule">
           
-    <form class="form-signin" onSubmit={handlePost}>
+    <form class="form-signin" >
         <img class="mb-4" src="../images/login_food.jpg" alt="" width="72" height="57" />
         
         <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
@@ -78,7 +68,7 @@ function LoginModule(){
             <input type="checkbox" value="remember-me" /> Remember me
         </label>
         </div>
-        <button class="w-100 btn btn-lg btn-primary" type="Submit">Sign in</button>
+        <button class="w-100 btn btn-lg btn-primary" type="Submit" onClick={handlePost}>Sign in</button>
         <p class="fs-6">Not have an account yet? Click <a class="text-decoration-none" href="#" onClick={toRegister}>here</a> to have one today!</p>
         <p class="mt-5 mb-3 text-muted">Foodies © 2021</p>
     </form>

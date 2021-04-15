@@ -1,5 +1,10 @@
-#map {
-    height: 60%;
-    width: 60%;
-    margin: auto;
-  }
+.map {
+    height: 60vw;
+    width: 60vw;
+    position: relative;
+}
+
+.location-icon{
+    font-size: 2rem;
+    color: red;
+}
