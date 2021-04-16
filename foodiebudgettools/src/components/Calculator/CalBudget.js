@@ -1,14 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Char from "./char.js";
+import Char ,{updateChart} from "./chart";
 import Budget from "./budget.js";
 import style from "./style.css";
 
 
 function CalBudget(){
-    return(
-        <div>
-            {/*  // SELECT ELEMENTS
+     // SELECT ELEMENTS
 const balanceEl = document.querySelector(".balance .value");
 const incomeTotalEl = document.querySelector(".income-total");
 const outcomeTotalEl = document.querySelector(".outcome-total");
@@ -220,9 +218,73 @@ function inactive( elements ){
     elements.forEach( element => {
         element.classList.remove("active");
     })
-}  */}
-        </div>
-    )
-}
 
+    return(
+        <div className="budget-container">
+            <div class="app-title">
+            <a href="">Foodies<b>Group</b></a>
+        </div>
+        <div className="budget-header">
+            <div className="balance">
+                <div className="title">
+                    Balance
+                </div>
+                <div className="value">
+                    <small>$</small>0
+                </div>
+            </div>
+            <div className="account">
+                <div className="income">
+                    <div className="title">
+                        Income
+                    </div>
+                    <div className="income-total">
+                        <small>$</small>0
+                    </div>
+                </div>
+                <div className="chart"></div>
+                <div className="outcome">
+                    <div className="title">
+                        Income
+                    </div>
+                    <div className="outcome-total">
+                        <small>$</small>0
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div className="budget-dashboard">
+            <div className="dash-title">Dashboard</div>
+            <div className="toggle">
+                <div className="tab1">Restaurant name</div>
+                <div className="tab2">Income</div>
+                <div className="tab3 active">All</div>
+            </div>
+            <div className="hide" id="income">
+                <ul className="list"></ul>
+                <div className="input">
+                    <input type="text" id="income-title-input" name="name" placeholder="Title"/>
+                    <input type="number" id="income-amount-input" name="amount" placeholder="$0"/>
+                    <div className="add-income"><img src="icon/plus.png" alt=""/></div>
+                </div>
+            </div>
+            <div className="hide" id="expense">
+                <ul className="list"></ul>
+                <div className="input">
+                    <input type="text" id="expense-title-input" name="title" placeholder="Title"/>
+                    <input type="number" id="expense-amount-input" name="amount" placeholder="$0"/>
+                    <div className="add-expense"><img src="icon/plus.png" alt=""/></div>
+                </div>
+            </div>
+            <div id="all">
+                <ul className="list"></ul>
+            </div>
+        </div>
+    </div>
+            
+       
+    
+    );
+}
+}
 export default CalBudget;

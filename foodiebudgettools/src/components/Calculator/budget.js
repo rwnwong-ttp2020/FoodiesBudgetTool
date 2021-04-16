@@ -1,5 +1,5 @@
 /* www.youtube.com/CodeExplained */
-
+import {updateChart} from "./chart";
 // SELECT ELEMENTS
 const balanceEl = document.querySelector(".balance .value");
 const incomeTotalEl = document.querySelector(".income-total");

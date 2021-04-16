@@ -36,3 +36,4 @@ function updateChart( income, outcome){
     drawCircle("#FFFFFF", - ratio, true);
     drawCircle("#F0624D", 1 - ratio, false);
 }
+export {updateChart};
