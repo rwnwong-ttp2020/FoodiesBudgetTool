@@ -1,6 +1,7 @@
 import React from "react";
 import GoogleMapReact from "google-map-react";
 import LocationMarker from "./LocationMarker";
+import InformationArea from "./InformationArea";
 import "./MapCss.css";
 
 const Map = ({restaurantData,center,zoom})=>{
@@ -13,14 +14,14 @@ const Map = ({restaurantData,center,zoom})=>{
     return (
       <div className="map">
           <GoogleMapReact 
-            bootstrapURLKeys={{key:"**********"}}
+            bootstrapURLKeys={{key:"AIzaSyCIAWqxvhz_7B4k69ZvdQ_Mz7g_rhm2clM"}}
             defaultCenter={center}
             defaultZoom ={zoom}
           >
           {/* in here should call markers!! */}
             <LocationMarker lat={center.lat} lng={center.lng}/>
           </GoogleMapReact>
-          {/* <input type="text" id="search" class="form-control" placeholder="Email address"  values={userInput.inputEmail} onChange={handleChange}/> */}
+          <InformationArea />
       </div>
     );
 };

@@ -8,7 +8,7 @@ import RegisterModule from "../src/components/LoginModule_JL/RegisterModule";
 function App() {
   return (
     <div>
-      <RegisterModule />
+      <MapModule />
     </div>
   );
 }
