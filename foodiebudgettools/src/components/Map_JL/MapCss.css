@@ -1,5 +1,17 @@
-#map {
+.map {
     height: 60%;
     width: 60%;
-    margin: auto;
-  }
+    position: absolute;
+    display: inline;
+}
+
+.location-icon{
+    font-size: 2rem;
+    color: rgb(25, 0, 255);
+}
+.informationArea{
+    margin-right: 5%;
+    width: 25%;
+    height: 25%;
+    display: inline;
+}
