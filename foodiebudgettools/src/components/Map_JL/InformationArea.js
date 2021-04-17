@@ -11,8 +11,8 @@ function InformationArea(){
         headers.append('Content-Type','application/json');
         headers.append('Access-Control-Allow-Origin', 'http://localhost:3000');
         headers.append('Access-Control-Allow-Credentials', 'true');
-        
-        fetch('http://localhost:3939/search', {
+
+        fetch('/search', {
             method: 'POST',
             headers: headers,
             body: JSON.stringify(searchText),
