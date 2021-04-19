@@ -39,7 +39,7 @@ function Cards() {
               src='../images/Calculator.png'
               text='Calculator Budget'
               label='Budget'
-              path='/products'
+              path='/calculate'
             />
             <CardItem
               src='../images/ChatSupport.jpeg'
