@@ -12,10 +12,11 @@ function RegisterModule(){
     });
     
     let [isvisibleAlert,setVisible] = useState("none");
-    let [isSuccess,setResState] = useState(false);
+    //let [isSuccess,setResState] = useState(false);
 
     function handlePost(event){
-        if(userInput.inputEmail !== userInput.reInputPassword){
+
+        if(userInput.inputPassword !== userInput.reInputPassword){
             setVisible("");
             return;
         }
@@ -30,16 +31,13 @@ function RegisterModule(){
               .then(response => response.json())
               .then(data => {
                 console.log(data.result);
-                setResState(data.result);
-              })
-              .then(()=>{
-                if(isSuccess){
-                    ReactDOM.render(
-                        <App_BM userName = {userInput.inputEmail}/>,
-                        document.getElementById('root')
-                      );
+                if(data.result){
+                  ReactDOM.render(
+                      <App_BM userName = {userInput.inputEmail}/>,
+                      document.getElementById('root')
+                    );
                 }else{
-                   //need to show err tip
+                  alert("something went wrong, try again.")
                 }
               })
               .catch((error) => {
