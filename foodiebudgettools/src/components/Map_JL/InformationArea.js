@@ -1,26 +1,25 @@
 import React from "react";
 import ReactDOM from 'react-dom';
-
+import MapModule from "./MapModule";
 function InformationArea(){
 
     function handlePost(event){
         event.preventDefault();
        
         let searchText = document.getElementById("inputText").value;
-        let headers = new Headers();
-        headers.append('Content-Type','application/json');
-        headers.append('Access-Control-Allow-Origin', 'http://localhost:3000');
-        headers.append('Access-Control-Allow-Credentials', 'true');
-
-        fetch('/search', {
+        fetch('http://localhost:3939/search', {
             method: 'POST',
-            headers: headers,
-            body: JSON.stringify(searchText),
+            headers: {'Content-Type':'application/json'},
+            body: JSON.stringify({"userInput":searchText}),
             })
               .then(response => response.json())
               .then(data => {
                 if(data){
                     console.log(data);
+                    ReactDOM.render(
+                        <MapModule resData={data}/>,
+                        document.getElementById('root')
+                    );
                 }else{
                     console.log("can not get the data");
                 }

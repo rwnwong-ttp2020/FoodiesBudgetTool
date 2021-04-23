@@ -2,9 +2,9 @@ import {Icon} from "@iconify/react";
 import locationIcon from "@iconify/icons-mdi/safety-glasses"
 import "./MapCss.css";
 
-const LocationMarker = ({lat,lng,onClick})=>{
+const LocationMarker = ({lat,lng})=>{
     return (
-        <div className="location-marker" onClick={onClick}>
+        <div className="location-marker" >
             <Icon 
             icon={locationIcon} 
             className="location-icon"

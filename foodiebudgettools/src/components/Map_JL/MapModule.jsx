@@ -4,13 +4,14 @@ import LocationMarker from "./LocationMarker";
 import InformationArea from "./InformationArea";
 import "./MapCss.css";
 
-const Map = ({restaurantData,center,zoom})=>{
+const Map = ({resData,center,zoom})=>{
+  
   const [locationInfo, setLocationInfo] = React.useState(null);
 
-  // const markers = restaurantData.map((resInfo,index)=>{
-  //     //need to check restaurantData, get the name and lat and lng number.
-  //     //return <LocationMarker key={index} lat={lat} lng={center.lng}/>;
-  // });
+  const markers = resData.result.map((resInfor)=>{
+    return <LocationMarker lat={resInfor.coordinates.lat} lng={resInfor.coordinates.lng}/> 
+  });
+
     return (
       <div className="map">
           <GoogleMapReact 
@@ -18,14 +19,16 @@ const Map = ({restaurantData,center,zoom})=>{
             defaultCenter={center}
             defaultZoom ={zoom}
           >
-          {/* in here should call markers!! */}
-            <LocationMarker lat={center.lat} lng={center.lng}/>
+          {markers}
           </GoogleMapReact>
           <InformationArea />
       </div>
     );
 };
 Map.defaultProps = {
+  resData:{
+    result:[]
+  },
   center:{
     lat: 40.730610,
     lng: -73.935242

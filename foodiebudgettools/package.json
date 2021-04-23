@@ -2,7 +2,6 @@
   "name": "foodiebudgettools",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3939",
   "dependencies": {
     "@googlemaps/js-api-loader": "^1.11.3",
     "@iconify/icons-mdi": "^1.1.13",
