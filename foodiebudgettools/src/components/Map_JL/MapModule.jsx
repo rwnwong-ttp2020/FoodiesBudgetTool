@@ -1,11 +1,13 @@
+import Dotenv from "dotenv";
 import React from "react";
 import GoogleMapReact from "google-map-react";
 import LocationMarker from "./LocationMarker";
 import InformationArea from "./InformationArea";
 import "./MapCss.css";
 
+
 const Map = ({resData,center,zoom})=>{
-  
+
   const [locationInfo, setLocationInfo] = React.useState(null);
 
   const markers = resData.result.map((resInfor)=>{
@@ -15,7 +17,7 @@ const Map = ({resData,center,zoom})=>{
     return (
       <div className="map">
           <GoogleMapReact 
-            bootstrapURLKeys={{key:"AIzaSyCIAWqxvhz_7B4k69ZvdQ_Mz7g_rhm2clM"}}
+            bootstrapURLKeys={{key:process.env.GOOGLE_API_KEY}}
             defaultCenter={center}
             defaultZoom ={zoom}
           >
