@@ -1,3 +1,4 @@
+require('dotenv').config();
 //require the need componements
 require('dotenv').config();
 const express = require("express");
@@ -5,6 +6,10 @@ const mongoose = require("mongoose");
 const {Schema} = mongoose;
 const cors = require("cors");
 const app = express();
+////////////////////////////////////////////////////MongoDB////////////////////////////////////////
+//DB connect String
+mongoose.connect(process.env.MONGOURL,{ useUnifiedTopology: true, useNewUrlParser: true },()=>{console.log("connected to FoodiesDB")});//
+//console.log(process.env.MONGOURL);
 
 //setup using jsosn
 app.use(express.json());
@@ -23,7 +28,8 @@ const UserSchema = new Schema({
     userName:String,
     userPwd:String
 });
-const UserOperation = mongoose.model('UserInfo', UserSchema, 'UserInfo');  
+//specft the collection ---which collection work for 
+const UserOperation = mongoose.model('UserInfo', UserSchema, 'UserInfo');     // collection name
 ///////////////////////////////////////////////////Yelp Api///////////////////////////////////////////
 const yelp = require('yelp-fusion');
 const apiKey = 'rgyyTNox1UhPWw-fu6kDbv7mGQ4TDFpu8Ex8OOJ3TRHXN5l1AuASmE7dYLL9GEl656GqIlApjT_UXcnXNqXfYjJbjuY8kK7PZgJfqbdyRkqBVx6koZaD-op6NFp4YHYx';
