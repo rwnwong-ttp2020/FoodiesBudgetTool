@@ -26,17 +26,12 @@ function Cards() {
             />
           </ul>
           <ul className='cards__items'>
-            <CardItem
-              src='../images/app-store.png'
-              text='Foodies Buget App'
-              label='App'
-              path='/services'
-            />
+            
             <CardItem
               src='../images/Calculator.png'
               text='Calculator Budget'
               label='Budget'
-              path='/products'
+              path='/calculate'
             />
             <CardItem
               src='../images/ChatSupport.jpeg'
