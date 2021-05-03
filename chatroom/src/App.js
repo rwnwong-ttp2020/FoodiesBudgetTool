@@ -11,7 +11,7 @@ import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 firebase.initializeApp({
   apiKey: "AIzaSyDBwk9yGfL22-ni7Vqtnv9Wygg6Sibrlt8",
-  authDomain: "chatroom-60825.firebaseapp.com",
+  authDomain: "https://chatroom-60825.web.app/",
   projectId: "chatroom-60825",
   storageBucket: "chatroom-60825.appspot.com",
   messagingSenderId: "460925565395",
