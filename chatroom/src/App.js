@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './App.css';
 
 import firebase from 'firebase/app';
@@ -9,16 +9,16 @@ import 'firebase/analytics';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 
-  firebase.initializeApp({
-    apiKey: "AIzaSyDBwk9yGfL22-ni7Vqtnv9Wygg6Sibrlt8",
-    authDomain: "chatroom-60825.firebaseapp.com",
-    databaseURL: "https://chatroom-60825-default-rtdb.firebaseio.com",
-    projectId: "chatroom-60825",
-    storageBucket: "chatroom-60825.appspot.com",
-    messagingSenderId: "460925565395",
-    appId: "1:460925565395:web:731f76f823557197a95726",
-    measurementId: "G-7Z9J26D28Z"
-  })
+firebase.initializeApp({
+
+  apiKey: "AIzaSyDBwk9yGfL22-ni7Vqtnv9Wygg6Sibrlt8",
+  authDomain: "chatroom-60825.firebaseapp.com",
+  databaseURL: "https://chatroom-60825-default-rtdb.firebaseio.com",
+  projectId: "chatroom-60825",
+  storageBucket: "chatroom-60825.appspot.com",
+  messagingSenderId: "460925565395",
+  appId: "1:460925565395:web:731f76f823557197a95726"
+})
 
 const auth = firebase.auth();
 const firestore = firebase.firestore();
@@ -70,7 +70,7 @@ function SignOut() {
 function ChatRoom() {
   const dummy = useRef();
   const messagesRef = firestore.collection('messages');
-  const query = messagesRef.orderBy('createdAt').limit(25);
+  const query = messagesRef.orderBy('createdAt').limitToLast(25);
 
   const [messages] = useCollectionData(query, { idField: 'id' });
 
@@ -90,8 +90,12 @@ function ChatRoom() {
     })
 
     setFormValue('');
-    dummy.current.scrollIntoView({ behavior: 'smooth' });
+    
   }
+
+  useEffect(() => {
+    dummy.current.scrollIntoView({ behavior: 'smooth' });
+  }, [messages])
 
   return (<>
     <main>
