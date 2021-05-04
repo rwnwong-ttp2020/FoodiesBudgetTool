@@ -9,16 +9,16 @@ import 'firebase/analytics';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 
-firebase.initializeApp({
-  apiKey: "AIzaSyDBwk9yGfL22-ni7Vqtnv9Wygg6Sibrlt8",
-  authDomain: "chatroom-60825.firebaseapp.com",
-  databaseURL: "https://chatroom-60825-default-rtdb.firebaseio.com",
-  projectId: "chatroom-60825",
-  storageBucket: "chatroom-60825.appspot.com",
-  messagingSenderId: "460925565395",
-  appId: "1:460925565395:web:4ae2f96b4dbbb1f1a95726",
-  measurementId: "G-5BS21STF79"
-})
+  firebase.initializeApp({
+    apiKey: "AIzaSyDBwk9yGfL22-ni7Vqtnv9Wygg6Sibrlt8",
+    authDomain: "chatroom-60825.firebaseapp.com",
+    databaseURL: "https://chatroom-60825-default-rtdb.firebaseio.com",
+    projectId: "chatroom-60825",
+    storageBucket: "chatroom-60825.appspot.com",
+    messagingSenderId: "460925565395",
+    appId: "1:460925565395:web:731f76f823557197a95726",
+    measurementId: "G-7Z9J26D28Z"
+  })
 
 const auth = firebase.auth();
 const firestore = firebase.firestore();
