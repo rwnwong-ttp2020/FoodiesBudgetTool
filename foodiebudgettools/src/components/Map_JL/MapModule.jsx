@@ -1,3 +1,4 @@
+import Dotenv from "dotenv";
 import React from "react";
 import GoogleMapReact from "google-map-react";
 import LocationMarker from "./LocationMarker";
@@ -5,28 +6,33 @@ import InformationArea from "./InformationArea";
 import Searchbar from "../SearchModule/Searchbar";
 import "./MapCss.css";
 
-const Map = ({restaurantData,center,zoom})=>{
+
+const Map = ({resData,center,zoom})=>{
+
   const [locationInfo, setLocationInfo] = React.useState(null);
 
-  // const markers = restaurantData.map((resInfo,index)=>{
-  //     //need to check restaurantData, get the name and lat and lng number.
-  //     //return <LocationMarker key={index} lat={lat} lng={center.lng}/>;
-  // });
+  const markers = resData.businesses.map((resInfor)=>{// map = foreach function
+    return <LocationMarker lat={resInfor.coordinates.latitude} lng={resInfor.coordinates.longitude}/> 
+  });
+
     return (
       <div className="map">
+          <Searchbar/>
           <GoogleMapReact 
             bootstrapURLKeys={{key:"AIzaSyCIAWqxvhz_7B4k69ZvdQ_Mz7g_rhm2clM"}}
             defaultCenter={center}
             defaultZoom ={zoom}
           >
-          {/* in here should call markers!! */}
-            <LocationMarker lat={center.lat} lng={center.lng}/>
+          {markers}
           </GoogleMapReact>
           
       </div>
     );
 };
 Map.defaultProps = {
+  resData:{
+    businesses:[]
+  },
   center:{
     lat: 40.730610,
     lng: -73.935242
@@ -35,4 +41,4 @@ Map.defaultProps = {
 }
 
 export default Map;
-{/* <InformationArea /> */}
+//categories
