@@ -1,12 +1,14 @@
 import React from "react";
 import ReactDOM from 'react-dom';
 import MapModule from "./MapModule";
+
 function InformationArea(){
 
     function handlePost(event){
         event.preventDefault();
        
         let searchText = document.getElementById("inputText").value;
+        
         fetch('http://localhost:3939/search', {
             method: 'POST',
             headers: {'Content-Type':'application/json'},
