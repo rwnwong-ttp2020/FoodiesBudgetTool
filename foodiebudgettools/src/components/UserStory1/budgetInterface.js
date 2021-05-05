@@ -27,7 +27,7 @@ function BudgetInterface () {
         let userBudeget = document.getElementById("inputBudget").value;
         let tier = document.getElementById("tier").value;
         let result= Math.floor(userBudeget/tier);
-        document.getElementById("result").innerHTML="you can eat out : "+result+" times pre month";
+        document.getElementById("result").innerHTML="you can eat out : "+result+" times per month";
         event.preventDefault();
     }
     return (
