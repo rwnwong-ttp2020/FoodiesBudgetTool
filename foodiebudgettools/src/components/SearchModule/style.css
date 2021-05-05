@@ -4,15 +4,15 @@ body{
 }
 .header
 {
-    height: 100vh;
-    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(image.jpg);
-    background-size: cover;
-    background-position: center;
+    /* height: 100vh; linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),*/
+    width: 100%;
+    background-image: url(image.jpg);
+    background-repeat: fill;
+    background-size:cover;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: sans-serif;
-
 }
 h1
 {

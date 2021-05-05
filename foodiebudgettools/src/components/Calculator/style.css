@@ -38,19 +38,18 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-.budget-container{
-    position: absolute;
-    width: 360px;
-    height: 780px;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    background-color: #34006a;
+.app-title {
+    margin: 0 0 15px 20px
 }
 
-.budget-container .app-title{
-    margin-top: 45px;
-    margin-left: 20px;
+.budget-container{
+    width: 70%;
+    margin: auto;
+    background: black;
+}
+
+.budget-container {
+    margin: auto;
 }
 
 .budget-container .app-title a{
@@ -60,12 +59,13 @@ input[type=number] {
     font-family: 'Gilroy Bold';
 }
 
-.budget-header{
-
+.balance {
+    margin: 0 0 20px 20px
 }
 
-.budget-header .balance{
-    margin-top: 45px;
+.budget-header {
+    display: flex;
+    justify-content: space-between;
     margin-left: 20px;
 }
 
@@ -119,8 +119,8 @@ input[type=number] {
 /*/////////////   DASHBOARD    /////////////*/
 .budget-dashboard{
     display: block;
-    width: 360px;
-    height: 470px;
+    /* width: 360px;
+    height: 470px; */
     background-color: #FFF;
     margin-top: 35px;
     border-radius: 30px 30px 0 0;
@@ -343,7 +343,7 @@ input[type=number] {
     display: block;
     width: 360px;
     bottom: 0;
-    border-top: 1px solid #ccc;
+    /* border-top: 1px solid #ccc; */
 }
 
 .budget-dashboard #income .input *{

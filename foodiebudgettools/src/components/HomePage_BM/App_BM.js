@@ -5,7 +5,7 @@ import Home from './pages/Home';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Services from './pages/Services';
 import Products from './pages/Products';
-import SignUp from './pages/SignUp';
+import Chat from "./pages/Chat";
 import CalBudget from '../Calculator/CalBudget'
 
 function App(props) {
@@ -18,7 +18,7 @@ function App(props) {
           <Route path='/services' component={Services} />
           <Route path='/products' component={Products} />
           <Route path='/calculate' component={CalBudget} />
-          <Route path='/sign-up' component={SignUp} />
+          <Route path='/Chat' component={Chat} />
         </Switch>
       </Router>
     </>
