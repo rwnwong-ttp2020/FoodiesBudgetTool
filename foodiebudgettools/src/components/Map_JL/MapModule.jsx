@@ -2,6 +2,7 @@ import React from "react";
 import GoogleMapReact from "google-map-react";
 import LocationMarker from "./LocationMarker";
 import InformationArea from "./InformationArea";
+import Searchbar from "../SearchModule/Searchbar";
 import "./MapCss.css";
 
 const Map = ({restaurantData,center,zoom})=>{
@@ -21,7 +22,7 @@ const Map = ({restaurantData,center,zoom})=>{
           {/* in here should call markers!! */}
             <LocationMarker lat={center.lat} lng={center.lng}/>
           </GoogleMapReact>
-          <InformationArea />
+          
       </div>
     );
 };
@@ -34,3 +35,4 @@ Map.defaultProps = {
 }
 
 export default Map;
+{/* <InformationArea /> */}
