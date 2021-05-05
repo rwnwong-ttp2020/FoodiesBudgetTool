@@ -26,7 +26,7 @@ function BudgetInterface () {
     function submitBtn(event){
         let userBudeget = document.getElementById("inputBudget").value;
         let tier = document.getElementById("tier").value;
-        let result= userBudeget/tier;
+        let result= Math.floor(userBudeget/tier);
         document.getElementById("result").innerHTML="you can eat out : "+result+" times pre month";
         event.preventDefault();
     }
@@ -42,9 +42,9 @@ function BudgetInterface () {
                     Choose your restaurant tier 
                 </label>
                 <select name="tier" id="tier">
-                    <option value="15">$15/pre</option>
-                    <option value="40">$40/pre</option>
-                    <option value="72">$75/pre</option>
+                    <option value="15">Budget Friendly - $15/per person</option>
+                    <option value="40">Moderately Priced - $40/person</option>
+                    <option value="75">Fine Dining - $75/per person</option>
                 </select>
                 {/* <input type="text" id="inputPrice" name="inputPrice" value={calTool.restaurantTier} onChange={handleChange}/> */}
             <br/>
