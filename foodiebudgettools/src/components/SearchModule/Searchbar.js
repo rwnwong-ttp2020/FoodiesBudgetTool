@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from 'react-dom';
-import MapModule from "../Map_JL/MapModule";
+import Searchbar from "../SearchModule/Searchbar";
 import "./style.css";
 
 function Searchbar(){

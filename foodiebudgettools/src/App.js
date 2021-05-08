@@ -9,7 +9,7 @@ import Searchbar from "../src/components/SearchModule/Searchbar";
 function App() {
   return (
     <div>
-      <LoginModule/>
+      <Searchbar/>
     </div>
   );
 }
