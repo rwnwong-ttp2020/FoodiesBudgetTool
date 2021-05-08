@@ -11,7 +11,7 @@ import BudgetInterface from "../src/components/UserStory1/budgetInterface";
 function App() {
   return (
     <div>
-      <BudgetInterface/>
+      <APP_BM/>
     </div>
   );
 }

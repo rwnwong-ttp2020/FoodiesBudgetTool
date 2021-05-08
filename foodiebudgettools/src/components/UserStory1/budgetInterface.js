@@ -1,7 +1,9 @@
 // this page created by Jian and Rose 03/15/21
 
 import React, {useState}from "react";
-import "./budegetInterface.css"; 
+import "./budegetInterface.css";
+import CalBudget from "../Calculator/CalBudget";
+import ReactDOM from 'react-dom';
 
 function BudgetInterface () {
     // let [times,setTimes]= useState(0);
@@ -22,7 +24,9 @@ function BudgetInterface () {
     //     console.log(times);
     //     event.preventDefault();
     //   }
-
+    function calculatorLink(){
+        ReactDOM.render(<CalBudget/>, document.getElementById('root'));
+    }
     function submitBtn(event){
         let userBudeget = document.getElementById("inputBudget").value;
         let tier = document.getElementById("tier").value;
@@ -50,6 +54,11 @@ function BudgetInterface () {
             <br/>
             <button onClick = {submitBtn}>click to see result</button>
             <h1 id="result">0</h1>
+                <label>
+                    Go to budget tool to track your budget
+                </label>
+                <button onClick = {calculatorLink}>Budget Tool</button> 
+                
             </form>
         </div>
     )
