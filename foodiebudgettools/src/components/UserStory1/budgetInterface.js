@@ -38,11 +38,13 @@ function BudgetInterface () {
     return (
         <div id="eatingOut">
             <form>
+            <div>
                 <label>
                     Enter your monthly eating out budget
                 </label>
                 <input type="text" id="inputBudget" name="inputBudget"/>
-                <br/>
+            </div>
+            <div>
                 <label>
                     Choose your restaurant tier 
                 </label>
@@ -52,7 +54,7 @@ function BudgetInterface () {
                     <option value="75">Fine Dining - $75/per person</option>
                 </select>
                 {/* <input type="text" id="inputPrice" name="inputPrice" value={calTool.restaurantTier} onChange={handleChange}/> */}
-            <br/>
+            </div>
             <button onClick = {submitBtn}>click to see result</button>
             <h1 id="result">0</h1>
                 <label>
