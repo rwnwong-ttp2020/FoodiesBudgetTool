@@ -4,6 +4,7 @@ import React, {useState}from "react";
 import "./budegetInterface.css";
 import CalBudget from "../Calculator/CalBudget";
 import ReactDOM from 'react-dom';
+import { Link } from 'react-router-dom';
 
 function BudgetInterface () {
     // let [times,setTimes]= useState(0);
@@ -24,9 +25,9 @@ function BudgetInterface () {
     //     console.log(times);
     //     event.preventDefault();
     //   }
-    function calculatorLink(){
+    /*function calculatorLink(){
         ReactDOM.render(<CalBudget/>, document.getElementById('root'));
-    }
+    }*/
     function submitBtn(event){
         let userBudeget = document.getElementById("inputBudget").value;
         let tier = document.getElementById("tier").value;
@@ -57,8 +58,9 @@ function BudgetInterface () {
                 <label>
                     Go to budget tool to track your budget
                 </label>
-                <button onClick = {calculatorLink}>Budget Tool</button> 
-                
+                <Link to='/calculate' className='navbar-logo'><button >Budget Tool</button></Link>   
+                 
+
             </form>
         </div>
     )
