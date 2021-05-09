@@ -44,14 +44,14 @@ function Navbar(props) {
             </li>
             <li className='nav-item'>
               <Link
-                to='/services'
+                to='/'
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
                 Services
               </Link>
             </li>
-            <li className='nav-item'>
+            {/* <li className='nav-item'>
               <Link
                 to='/products'
                 className='nav-links'
@@ -59,8 +59,7 @@ function Navbar(props) {
               >
                 Products
               </Link>
-            </li>
-
+            </li> */}
             <li>
               <Link
                 to='/sign-up'
@@ -71,7 +70,7 @@ function Navbar(props) {
               </Link>
             </li>
           </ul>
-          {button && <Button buttonStyle='btn--outline'>{"Hello " +userName}</Button>}
+          {button && <Button buttonStyle='btn--outline'>{userName}</Button>}
         </div>
       </nav>
     </>

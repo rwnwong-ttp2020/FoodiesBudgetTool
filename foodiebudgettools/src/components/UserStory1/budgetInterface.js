@@ -7,27 +7,7 @@ import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 
 function BudgetInterface () {
-    // let [times,setTimes]= useState(0);
-    // let [calTool,setAmount] = useState({
-    //     "inputBudget":0 , 
-    //     "inputPrice": 0
-    // });
-    // function handleChange(event){
-    //     const {name,value} = event.target;
-    //     setAmount((preV)=>{
-    //         return {...preV, [name]:value};
-    //     });
-    // }
-    // function submitBtn(event) {
-    //     setTimes (()=>{
-    //         return parseInt(calTool.inputBudget)/parseInt(calTool.inputPrice);
-    //     });
-    //     console.log(times);
-    //     event.preventDefault();
-    //   }
-    /*function calculatorLink(){
-        ReactDOM.render(<CalBudget/>, document.getElementById('root'));
-    }*/
+
     function submitBtn(event){
         let userBudeget = document.getElementById("inputBudget").value;
         let tier = document.getElementById("tier").value;

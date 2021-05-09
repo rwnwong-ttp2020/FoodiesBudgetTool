@@ -1,7 +1,6 @@
 import React from "react";
 import GoogleMapReact from "google-map-react";
 import LocationMarker from "./LocationMarker";
-// import InformationArea from "./InformationArea";
 import Searchbar from "../SearchModule/Searchbar";
 import InformationBox from "./InformationBox";
 import "./MapCss.css";
