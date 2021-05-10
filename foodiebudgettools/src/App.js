@@ -11,7 +11,7 @@ import Chatroom from "../src/components/Chatroom/Chatroom";
 function App() {
   return (
     <div>
-      <APP_BM/>
+      <MapModule/>
     </div>
   );
 }
