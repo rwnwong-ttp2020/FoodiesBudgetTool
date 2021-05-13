@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ReactDOM from 'react-dom';
 import App_BM from '../HomePage_BM/App_BM';
 import RegisterModule from './RegisterModule';
-
+import { Link } from 'react-router-dom';
 function LoginModule(){
     
     let [userInput,setInput] = useState({
@@ -12,7 +12,7 @@ function LoginModule(){
     
     let [isvisibleAlert,setVisible] = useState("none");
     //let [isExitUser,setUserState] = useState(false);
-
+    let nextPage="";
     function handlePost(event){
 
         event.preventDefault();
@@ -25,10 +25,11 @@ function LoginModule(){
               .then(response => response.json())
               .then(data => {
                 if(data.result){
-                    ReactDOM.render(
-                        <App_BM userName = {userInput.inputEmail}/>,
-                        document.getElementById('root')
-                      );
+                    // ReactDOM.render(
+                    //     <App_BM userName = {userInput.inputEmail}/>,
+                    //     document.getElementById('root')
+                    //   );
+                    nextPage = "/";
                 }else{
                     setVisible("");
                 }
@@ -68,7 +69,9 @@ function LoginModule(){
             <input type="checkbox" value="remember-me" /> Remember me
         </label>
         </div>
-        <button class="w-100 btn btn-lg btn-primary" type="Submit" onClick={handlePost}>Sign in</button>
+        <button class="w-100 btn btn-lg btn-primary" type="Submit" onClick={handlePost}>
+        <Link to={nextPage}>Sign in</Link>
+        </button>
         <p class="fs-6">Not have an account yet? Click <a class="text-decoration-none" href="#" onClick={toRegister}>here</a> to have one today!</p>
         <p class="mt-5 mb-3 text-muted">Foodies © 2021</p>
     </form>

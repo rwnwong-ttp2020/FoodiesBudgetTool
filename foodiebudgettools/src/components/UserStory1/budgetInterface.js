@@ -7,27 +7,7 @@ import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 
 function BudgetInterface () {
-    // let [times,setTimes]= useState(0);
-    // let [calTool,setAmount] = useState({
-    //     "inputBudget":0 , 
-    //     "inputPrice": 0
-    // });
-    // function handleChange(event){
-    //     const {name,value} = event.target;
-    //     setAmount((preV)=>{
-    //         return {...preV, [name]:value};
-    //     });
-    // }
-    // function submitBtn(event) {
-    //     setTimes (()=>{
-    //         return parseInt(calTool.inputBudget)/parseInt(calTool.inputPrice);
-    //     });
-    //     console.log(times);
-    //     event.preventDefault();
-    //   }
-    /*function calculatorLink(){
-        ReactDOM.render(<CalBudget/>, document.getElementById('root'));
-    }*/
+
     function submitBtn(event){
         let userBudeget = document.getElementById("inputBudget").value;
         let tier = document.getElementById("tier").value;
@@ -38,11 +18,13 @@ function BudgetInterface () {
     return (
         <div id="eatingOut">
             <form>
+            <div>
                 <label>
                     Enter your monthly eating out budget
                 </label>
                 <input type="text" id="inputBudget" name="inputBudget"/>
-                <br/>
+            </div>
+            <div>
                 <label>
                     Choose your restaurant tier 
                 </label>
@@ -52,7 +34,7 @@ function BudgetInterface () {
                     <option value="75">Fine Dining - $75/per person</option>
                 </select>
                 {/* <input type="text" id="inputPrice" name="inputPrice" value={calTool.restaurantTier} onChange={handleChange}/> */}
-            <br/>
+            </div>
             <button onClick = {submitBtn}>click to see result</button>
             <h1 id="result">0</h1>
                 <label>

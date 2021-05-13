@@ -5,25 +5,22 @@ import CardItem from './CardItem';
 function Cards() {
   return (
     <div className='cards'>
-      <h1>Check out these EPIC Destinations!</h1>
+      {/* <h1>Check out these EPIC Destinations!</h1> */}
       <div className='cards__container'>
         <div className='cards__wrapper'>
           <ul className='cards__items'>
-            <CardItem // https://www.thenaturalfoodies.com/wp-content/uploads/2019/08/welove_foodies_t.png
-
+            <CardItem 
               src='../images/Foods.jpeg' 
               text='Explore the various of food in we love foodies that you can purchase'
               label='List of Foods'
               path='/services'
             />
             <CardItem
-
               src='../images/download.png'
               text='Get direction from Google maps'
               label='Map'
-
-              path='/services'
-            />
+              path='/map'
+          />
           </ul>
           <ul className='cards__items'>
             
@@ -37,7 +34,7 @@ function Cards() {
               src='../images/ChatSupport.jpeg'
               text='Contact Customer Service/Chat Support'
               label='Chat'
-              path='/sign-up'
+              path='/chat'
             />
           </ul>
         </div>
