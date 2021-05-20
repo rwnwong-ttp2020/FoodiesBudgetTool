@@ -4,7 +4,7 @@ import React,{useState,useEffect} from "react";
 import fire from 'firebase';
 import LoginModule from "../src/components/LoginModule_JL/LoginModule";
 function App() {
-  const [isUser,setUser]= useState();
+  const [user,setUser]= useState("");
   const [email,setEmail]=useState("");
   const [password,setPwd]=useState("");
   const [emailError,setEmailError]=useState("");
@@ -19,13 +19,15 @@ function App() {
     setEmailError("");
     setPwdError("");
   }
-  const handleLogin=()=>{
+  const handleLogin=(e)=>{
+    e.preventDefault();
     clearErrors();
+    console.log("in the login function "+email+"  pwd: "+password);
     fire
       .auth()
       .signInWithEmailAndPassword(email,password)
       .catch((err)=>{
-        switch (err.Code){
+        switch (err.code){
           case "auth/invalid-email":
           case "auth/user-disabled":
           case "auth/user-not-found":
@@ -37,13 +39,15 @@ function App() {
         }
       });
   };
-  const handleSignup=()=>{
+  const handleSignup=(e)=>{
+    e.preventDefault();
     clearErrors();
+    console.log("in the signup function "+email+"  pwd: "+password);
     fire
       .auth()
       .createUserWithEmailAndPassword(email,password)
       .catch((err)=>{
-        switch (err.Code){
+        switch (err.code){
           case "auth/email-already-in-use":
           case "auth/invalid-email":
             setEmailError(err.message);
@@ -55,13 +59,14 @@ function App() {
       });
   };
   const handleLogout=()=>{
+    console.log("call logout funtion ");
     fire.auth().signOut();
   };
   const authListener = ()=>{
-    fire.auth().onAuthStateChanged((isUser)=>{
-      if(isUser){
+    fire.auth().onAuthStateChanged((user)=>{
+      if(user){
         clearInputs();
-        setUser(isUser);
+        setUser(user);
       }else{
         setUser("");
       }
@@ -70,10 +75,11 @@ function App() {
 
   useEffect(() => {
     authListener();
-  }, [])
+  }, []);
+
   return (
     <div>
-      {isUser?(
+      {user?(
       <APP_BM userName={email} handleLogout={handleLogout}/>
     ):(
       <LoginModule

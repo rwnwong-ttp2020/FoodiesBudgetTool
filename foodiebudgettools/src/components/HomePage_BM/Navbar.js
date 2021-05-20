@@ -5,24 +5,22 @@ import './Navbar.css';
 
 function Navbar(props) {
   const [click, setClick] = useState(false);
-  const [button, setButton] = useState(true);
+  // const [button, setButton] = useState(true);
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
 
-  const showButton = () => {
-    if (window.innerWidth <= 960) {
-      setButton(false);
-    } else {
-      setButton(true);
-    }
-  };
-
-  useEffect(() => {
-    showButton();
-  }, []);
-
-  window.addEventListener('resize', showButton);
+  // const showButton = () => {
+  //   if (window.innerWidth <= 960) {
+  //     setButton(false);
+  //   } else {
+  //     setButton(true);
+  //   }
+  // };
+  // useEffect(() => {
+  //   showButton();
+  // }, []);
+  //window.addEventListener('resize', showButton);
 
   return (
     <>
@@ -49,11 +47,8 @@ function Navbar(props) {
                 Services
               </Link>
             </li>
-            <li>
-              {props.userName}
-            </li>
           </ul>
-          <Button buttonStyle='btn--outline' onClick={props.handleLogout}>{props.userName}</Button>
+          <button className='btn--outline' onClick={props.handleLogout}>{props.userName+"88887"}</button>
         </div>
       </nav>
     </>
@@ -61,4 +56,3 @@ function Navbar(props) {
 }
 
 export default Navbar;
-//props.userName

@@ -7,9 +7,10 @@ import Services from './pages/Services';
 import Map from './pages/Map';
 import Chat from "./pages/Chat";
 import CalBudget from '../Calculator/CalBudget'
-import Login from "./pages/Login";
+
 function App(props) {
 
+  console.log(props.userName);
   return (
     <>
       <Router>
@@ -20,7 +21,6 @@ function App(props) {
           <Route path='/map' component={Map} />
           <Route path='/calculate' component={CalBudget} />
           <Route path='/chat' component={Chat} />
-          <Route path='/sign-up' component={Login} />
         </Switch>
       </Router>
     </>
