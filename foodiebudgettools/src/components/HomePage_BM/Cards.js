@@ -20,7 +20,10 @@ function Cards() {
               text='Get direction from Google maps'
               label='Map'
               path='/map'
-            />
+          />
+          </ul>
+          <ul className='cards__items'>
+            
             <CardItem
               src='../images/Calculator.png'
               text='Calculator Budget'
