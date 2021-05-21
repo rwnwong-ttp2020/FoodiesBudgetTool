@@ -4,7 +4,7 @@ const InformationBox = ({infor})=>{
     let partURL = infor.URL.substring(8,30)+"...";
     return (
     <div className="location-info">
-        <h2>Reswantrant Information</h2>
+        <h2>Restaurant Information</h2>
         <ul>
             <li>Name: <strong>{ infor.Name }</strong></li>
             <li>Price: <strong>{ infor.Price }</strong></li>

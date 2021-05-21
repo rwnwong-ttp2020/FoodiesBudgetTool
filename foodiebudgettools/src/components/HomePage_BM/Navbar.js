@@ -48,7 +48,7 @@ function Navbar(props) {
               </Link>
             </li>
           </ul>
-          <button className='btn--outline' onClick={props.handleLogout}>{props.userName+"88887"}</button>
+          <button className='btn--outline' onClick={props.handleLogout}>{props.userName+"Login/SignUp"}</button>
         </div>
       </nav>
     </>
