@@ -1,13 +1,15 @@
 require('dotenv').config();
-const io = require('socket.io')(5000);
+const path = require('path');
 const express = require("express");
-// const mongoose = require("mongoose");
-// const {Schema} = mongoose;
 const cors = require("cors");
 const app = express();
 //setup using jsosn
 app.use(express.json());
 app.use(cors());
+
+// Serve static files from the React frontend app
+app.use(express.static(path.join(__dirname, "src/build")));
+
 ////////////////////////////////////////////////////MongoDB////////////////////////////////////////
 //DB connect String
 // mongoose.connect(process.env.MONGOURL,{ useUnifiedTopology: true, useNewUrlParser: true },()=>{console.log("connected to FoodiesDB")});
@@ -76,9 +78,14 @@ app.post("/search",function(req,res){
     console.log(e);
   });
 });
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname + "/src/build/index.html"));
+});
 
-app.listen("3939",function(){
-    console.log("foodies server online 3939");
+const port = process.env.PORT || 5000;
+
+app.listen(port,function(){
+    console.log("foodies server online on heroku");
 });
 
 

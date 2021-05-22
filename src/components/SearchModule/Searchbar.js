@@ -4,7 +4,7 @@ import MapModule from "../Map_JL/MapModule";
 import "./style.css";
 
 function Searchbar(){
-
+    const port = process.env.PORT || 5000;
     function handlePost(){
         //1. getting user input
         let resturant = document.getElementById("resturant").value;
@@ -14,7 +14,7 @@ function Searchbar(){
             "location":location
         };
         //make request
-        fetch('http://localhost:3939/search', {
+        fetch('http://localhost:'+port+'/search', {
             method: 'POST',
             headers: {'Content-Type':'application/json'},
             body: JSON.stringify(userInputData),
