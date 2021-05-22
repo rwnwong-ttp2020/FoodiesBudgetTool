@@ -1,0 +1,42 @@
+.map {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    display: inline;
+}
+
+.location-icon{
+    font-size: 2rem;
+    color: rgb(25, 0, 255);
+}
+.informationArea{
+    margin-right: 5%;
+    width: 25%;
+    height: 25%;
+    display: inline;
+}
+.location-info {
+    position: absolute;
+    top: 300px;
+    right: 80px;
+    width: 400px;
+    min-height: 200px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    font-size: 18px;
+    color: #fff;
+  }
+  
+  .location-info ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .location-info li {
+    padding: 5px 0;
+  }
+  .location-info li a{
+    color: #fff;
+    /* text-decoration: none; */
+  }
