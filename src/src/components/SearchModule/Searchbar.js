@@ -14,7 +14,7 @@ function Searchbar(){
             "location":location
         };
         //make request
-        fetch('http://localhost/search', {//
+        fetch('/search', {//
             method: 'POST',
             headers: {'Content-Type':'application/json'},
             body: JSON.stringify(userInputData),
